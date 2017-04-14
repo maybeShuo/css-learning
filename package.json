@@ -1,0 +1,22 @@
+{
+  "name": "css-learning",
+  "version": "1.0.0",
+  "description": "learn css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maybeShuo/css-learning.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "maybeShuo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maybeShuo/css-learning/issues"
+  },
+  "homepage": "https://github.com/maybeShuo/css-learning#readme"
+}
