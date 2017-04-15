@@ -4,7 +4,8 @@
   "description": "learn css",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/maybeShuo/css-learning/issues"
   },
-  "homepage": "https://github.com/maybeShuo/css-learning#readme"
+  "homepage": "https://github.com/maybeShuo/css-learning#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
+  }
 }
