@@ -13,6 +13,60 @@
     stroke-dashoffset: 0;
 }
 
+.rect-2 {
+    stroke: red;
+    transform: rotate(45deg);
+}
+
+.bg-2 {
+    position: relative;
+    top: 100px;
+}
+
+.box {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    border: 1px solid #000;
+    opacity: 0.5;
+    border-radius: 16px;
+    width: 100px;
+    height: 100px;
+    transition: all 0.5s ease;
+}
+
+.bg-2 {
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+
+/*.bg-2:hover .box{
+    transform: rotate(45deg);
+}*/
+
+.box-hover {
+    transform: rotate(45deg);
+}
+
+.b4 {
+    background-color: blue;
+}
+
+
+
+.b1 {
+    transform: rotate(15deg);
+}
+
+.b2 {
+    transform: rotate(30deg);
+}
+
+.b3 {
+    transform: rotate(45deg);
+}
+
 /*@keyframes dash {
     from {
       stroke-dashoffset: 1200;
