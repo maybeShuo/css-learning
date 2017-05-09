@@ -153,3 +153,92 @@ td {
 .icon_yugan {
     background-position: 0 100%;
 }
+
+.box__container {
+    position: absolute;
+    width: 51px;
+    height: 51px;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        .line1 {
+            left: 0;
+        }
+
+        .line2 {
+            top: 0;
+        }
+
+        .line3 {
+            left: 0;
+        }
+
+        .line4 {
+            top: 0;
+        }
+    }
+}
+
+.return__box {
+    top: 100px;
+    left: 1200px;
+    background: url("/imgs/return-bg.png");
+}
+
+.close__box {
+    top: 100px;
+    left: 1400px;
+    background: url("/imgs/box-bg.png");
+
+    .close__icon {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 50%;
+        margin-top: -12.5px;
+        left: 50%;
+        margin-left: -12.5px;
+        background: url("/imgs/close-icon.png");
+        transition: all 1s ease;
+    }
+
+    &:hover {
+        .close__icon {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.border__line {
+    position: absolute;
+    background-color: white;
+    transition: all .5s ease;
+    width: 1px;
+    height: 1px;
+}
+
+.line1 {
+    width: 51px;
+    top: 0;
+    left: -50px;
+}
+
+.line2 {
+    top: -50px;
+    left: 50px;
+    height: 51px;
+}
+
+.line3 {
+    top: 50px;
+    left: 50px;
+    width: 51px;
+}
+
+.line4 {
+    top: 50px;
+    left: 0;
+    height: 51px;
+}
