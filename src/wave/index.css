@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 400px;
+    top: 200px;
+}
+
+
+.wave {
+    position: absolute;
+    top:calc((100% - 40px)/2);
+    left:calc((100% - 40px)/2);
+    width: 40px;
+    height: 40px;
+    border: 2px solid #0767b8;
+    animation-name: w;
+    animation-duration: 2.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: rotate(45deg);
+    border-radius: 200px;
+    /*background: url("/wave/avatar.jpg");
+    background-attachment: fixed;
+    background-position:center center;*/
+}
+
+.wave1 {
+    background-size:auto 106%;
+
+}
+
+.wave2 {
+    animation-delay: .2s;
+    background-size:auto 102%;
+
+}
+
+.wave3 {
+    animation-delay: .4s;
+    background-size:auto 104%;
+
+}
+.wave4 {
+    animation-delay: .6s;
+    background-size:auto 101%;
+
+}
+
+.wave5 {
+    background-size:auto 102%;
+    animation-delay: .8s;
+}
+
+@keyframes w {
+    0% {
+        top:calc((100% - 40px)/2);
+        left:calc((100% - 40px)/2);
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+        border-radius: 20px;
+    }
+
+    75% {
+        top:calc((100% - 400px)/2);
+        left:calc((100% - 400px)/2);
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+        border-radius: 200px;
+    }
+
+    100% {
+        top:calc((100% - 400px)/2);
+        left:calc((100% - 400px)/2);
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
+}
