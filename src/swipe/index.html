@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Swipe 2</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+  <link href='./style.css' rel='stylesheet'/>
+  <style>
+
+/* Swipe 2 required styles */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  _width: 500px;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap div {
+  float:left;
+  width:30%;
+  position: relative;
+}
+#pager em{display: inline-block; vertical-align: middle; margin:0 10px; color: #333; font-style: normal;}
+#pager em.on{color: #f00;}
+/* END required styles */
+
+</style>
+
+</head>
+<body>
+
+  <h1>Swipe 2</h1>
+
+  <div id='mySwipe' class='swipe'>
+    <div class='swipe-wrap'>
+      <div> <b>1</b>
+      </div>
+      <div> <b>2</b>
+      </div>
+      <div>
+        <b>3</b>
+      </div>
+    </div>
+  </div>
+
+  <div style='text-align:center;padding-top:20px;'>
+    <div id="pager"> <em class="on">1</em> <em>2</em>
+      <em>3</em>
+    </div>
+    <button onclick='mySwipe.prev();return false;'>prev</button>
+    <button onclick='mySwipe.next();return false;'>next</button>
+
+  </div>
+
+<!-- <script src="jquery.js"></script>-->
+<script src='./swipe.js'></script>
+<script>
+
+// pure JS
+// var elem = document.getElementById('mySwipe');
+var mySwipe = Swipe(document.getElementById('mySwipe'), {
+  // startSlide: 4,
+  auto: 3000,
+  // continuous: true,
+  // disableScroll: true,
+  // stopPropagation: true,
+  callback: function(index, element) {
+    slideTab(index);
+  }
+  // transitionEnd: function(index, element) {}
+});
+// function addEvent(obj,type,fn){
+//     if(obj.attachEvent){
+//         obj.attachEvent('on'+type,function(){
+//             fn.call(this);
+//         });
+//     }else{
+//         obj.addEventListener(type,fn,false);
+//     }
+// }
+//点击数字导航跳转
+var bullets = document.getElementById('pager').getElementsByTagName('em');
+for (var i=0; i < bullets.length; i++) {
+    // (function(i, bullets){
+    //   addEvent(bullets[i],'click',function(){
+    //     mySwipe.slide(i, 500);
+    //   })
+    // })(i, bullets);
+  var elem = bullets[i];
+  elem.setAttribute('data-tab', i);
+  elem.onclick = function(){
+    mySwipe.slide(parseInt(this.getAttribute('data-tab'), 10), 500);
+  }
+}
+//高亮当前数字导航
+function slideTab(index){
+  var i = bullets.length;
+  while (i--) {
+    bullets[i].className = bullets[i].className.replace('on',' ');
+  }
+  bullets[index].className = 'on';
+};
+
+// with jQuery
+// window.mySwipe = $('#mySwipe').Swipe().data('Swipe');
+
+// url bar hiding
+(function() {
+
+  var win = window,
+      doc = win.document;
+
+  // If there's a hash, or addEventListener is undefined, stop here
+  if ( !location.hash || !win.addEventListener ) {
+
+    //scroll to 1
+    window.scrollTo( 0, 1 );
+    var scrollTop = 1,
+
+    //reset to 0 on bodyready, if needed
+    bodycheck = setInterval(function(){
+      if( doc.body ){
+        clearInterval( bodycheck );
+        scrollTop = "scrollTop" in doc.body ? doc.body.scrollTop : 1;
+        win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
+      }
+    }, 15 );
+
+    if (win.addEventListener) {
+      win.addEventListener("load", function(){
+        setTimeout(function(){
+          //reset to hide addr bar at onload
+          win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
+        }, 0);
+      }, false );
+    }
+  }
+
+})();
+</script>
